@@ -7,6 +7,7 @@ alert('Welcome to my favorite guessing game! \nAll you have to do is answer Yes 
 
 var user = prompt('What is your name?');
 alert('Hi ' + user + '! I am so happy you want to play my game!');
+console.log(user);
 
 //QUESTION 1
 var answer = prompt('Soooo ' + user + '... Is Devin\'s favorite food Chipotle? Type yes or no').toLowerCase();
