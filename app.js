@@ -2,14 +2,21 @@
 
 var userPoints = 0;
 
-console.log('Whats up!?');
-alert('Welcome to my favorite guessing game! \nAll you have to do is answer Yes or No - It\'s that simple!');
+console.log('Game On');
 
-var user = prompt('What is your name?');
-alert('Hi ' + user + '! I am so happy you want to play my game!');
-console.log(user);
+var user = prompt('Welcome to my favorite guessing game! What is your name?');
 
-//QUESTION 1
+while (!user){
+  user = prompt('What is your name? Really, we need your name, or you cant play!');
+}
+
+if (user.toLowerCase() != 'devin'){
+  alert('Too bad you are not Devin');
+}
+
+alert('Hi ' + user + '! I am so glad you want to play my game!');
+//
+// //QUESTION 1
 var answer = prompt('Soooo ' + user + '... Is Devin\'s favorite food Chipotle? Type yes or no').toLowerCase();
 console.log('The user answered: ' + answer);
 
@@ -66,9 +73,56 @@ console.log('The user answered: ' + answer5);
 
 if (answer5 === 'yes' || answer5 === 'y'){
   userPoints++;
-  alert('That\'s correct! He works at Allegro Pediatrics in Bellevue.\nYour final score is ' + userPoints + '/5 points.');
+  alert('That\'s correct! He works at Allegro Pediatrics in Bellevue.\nYou now have ' + userPoints + ' point(s');
 } else {
-  alert('I was really rooting for you on that one :( He does work for a Pediatric office named Allegro Pediatrics. \nYour final score is ' + userPoints + '/5 points.');
+  alert('I was really rooting for you on that one :( He does work for a Pediatric office named Allegro Pediatrics.\nYou now have ' + userPoints + ' point(s');
 }
 
 console.log('After question 5, the user has ' + userPoints + ' point(s)');
+
+//QUESTION 6
+var attempts = 4;
+var answer6 = prompt('What year did Devin Graduate?\nYou will have 4 attempts');
+while(attempts > 1){
+  if (answer6 < 2009){
+    attempts--;
+    answer6 = prompt('Sorry, that is too low! Guess again.\nWhat year did Devin Graduate?\nYou have ' + attempts + '  attempts left');
+    console.log('The user guessed ' + answer6 + ' and has ' + attempts + ' attempts left');
+  }else if (answer6 > 2009) {
+    attempts--;
+    answer6 = prompt('Sorry, that is too high! Guess again.\nWhat year did Devin Graduate?\nYou have ' + attempts + ' attempts left');
+    console.log('The user guessed ' + answer6 + ' and has ' + attempts + ' attempts left');
+  }else{
+    userPoints++;
+    alert('Correct! He graduated from Skyline High School in 2009\nYou now have ' + userPoints + ' point(s)');
+    break;
+  }
+}
+console.log('After question 6, the user has ' + userPoints + ' point(s)');
+
+//QUESTION 7
+var cars = ['bmw' , 'porsche' , 'vw' , 'buggati' , 'lamborghini'];
+var myCars = cars.join('\n');
+var flag = false;
+var attemptsCars = 6;
+var answer7 = prompt('Can you guess another car brand that is my favorite besides Audi?').toLowerCase();
+
+while (!flag && attemptsCars > 0) {
+  for (var i = 0; i < cars.length; i++) {
+    if (answer7 === cars[i]) {
+      flag = true;
+    }
+  }
+  if (flag === true) {
+    userPoints++;
+    alert('Correct! ' + answer7 + ' is on my list of favorite car brands!');
+    console.log('The user guessed ' + answer7 + ' and has ');
+  } else {
+    attemptsCars--;
+    answer7 = prompt('Sorry, ' + answer7 + ' is not on my list of favorite car brands!\nYou have ' + attemptsCars + '  attempts left');
+    console.log('The user guessed ' + answer7 + ' and has ' + (attemptsCars) + ' attempts left');
+  }
+}
+console.log('After question 7 the user has ' + userPoints + ' point(s)');
+
+alert('Here are my favorite car brands:\n' + myCars + '\n' + user + ', your final score is ' + userPoints + '/7 points');

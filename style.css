@@ -24,6 +24,10 @@ p {
   padding: 50px;
 }
 
+.heading {
+  padding: 50px 50px 0px 50px;
+}
+
 div {
   margin: 0 auto;
   border-radius: 25px;
@@ -93,7 +97,7 @@ ul {
     background-color: #333;
 }
 
-li {
+.navbar {
     display: inline;
     float: left;
     border-right: 1px solid white;
