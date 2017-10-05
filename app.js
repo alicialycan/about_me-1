@@ -16,81 +16,97 @@ if (user.toLowerCase() != 'devin'){
 
 alert('Hi ' + user + '! I am so glad you want to play my game!');
 
+
+//Stretch Goal 1
+var myQuestions = ['... Is Devin\'s favorite food Chipotle? Type yes or no', 'Is Devin\'s favorite car brand Ford?', 'Did Devin go to a 4 year college before Code Fellows?', 'Did Devin grow up in Issaquah Washington?', 'Does Devin currently work for a Pediatric office?'];
+var correctAnswers = ['Yep yep yep!\nYou now have ', 'You\'re right! He is not a big fan of Ford\'s but he does love Audi!\nYou now have ', 'That\'s correct! He attended Seattle Central Community College for an AA in Commercial Photography!\nYou now have ', 'That\'s correct! He works at Allegro Pediatrics in Bellevue.\nYou now have '];
+var wrongAnswers = ['Wrong! Actually, I LOVE mexican food!!\nYou now have ', 'Uh oh... his favorite car brand is actually Audi.\nYou now have ', 'Nope! But he did attended Seattle Central Community College for an AA in Commercial Photography!\nYou now have ', 'Aw man, if you would have said yes, you would have gotten it right.\nYou now have ', 'I was really rooting for you on that one :( He does work for a Pediatric office named Allegro Pediatrics.\nYou now have '];
+var myResponses = ['yes', 'y', 'no', 'n'];
+var pointsText = ' point(s)!'
+var userAnswered = 'The user answered: ';
+var afterQuestion = 'After question ';
+var index = 1;
+var theUserHas = ', the user has ';
+
 //QUESTION 1
 
 function question_one() {
-  var answer = prompt('Soooo ' + user + '... Is Devin\'s favorite food Chipotle? Type yes or no').toLowerCase();
-  console.log('The user answered: ' + answer);
+  var answer = prompt('Soooo ' + user + myQuestions[0]).toLowerCase();
+  console.log(userAnswered + answer);
 
-  if (answer === 'yes' || answer === 'y'){
+  if (answer === myResponses[0] || answer === myResponses[1]){
     userPoints++;
-    alert('Yep yep yep!\nYou now have ' + userPoints + ' point(s)');
+    alert(correctAnswers[0] + userPoints + pointsText;
   } else {
-    alert('Wrong! Actually, I LOVE mexican food!!\nYou now have ' + userPoints + ' point(s)');
+    alert(wrongAnswers[0] + userPoints + pointsText);
   }
-  console.log('After question 1, the user has ' + userPoints + ' point(s)!');
+  console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
+  index ++;
 }
 question_one();
 
 //QUESTION 2
 
 function question_two() {
-  var answer2 = prompt('Is Devin\'s favorite car brand Ford?').toLowerCase();
-  console.log('The user answered: ' + answer2);
+  var answer2 = prompt(myQuestions[1]).toLowerCase();
+  console.log(userAnswered + answer2);
 
-  if (answer2 === 'no' || answer2 === 'n'){
+  if (answer === myResponses[2] || answer === myResponses[3]){
     userPoints++;
-    alert('You\'re right! He is not a big fan of Ford\'s but he does love Audi!\nYou now have ' + userPoints + ' point(s)');
+    alert(correctAnswers[1] + userPoints + pointsText);
   } else {
-    alert('Uh oh... his favorite car brand is actually Audi.\nYou now have ' + userPoints + ' point(s)');
+    alert(wrongAnswers[1] + userPoints + pointsText);
   }
-    console.log('After question 2, the user has ' + userPoints + ' point(s)!');
+  console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
 }
 question_two();
 
 //QUESTION 3
 
 function question_three() {
-  var answer3 = prompt('Did Devin go to a 4 year college before Code Fellows?').toLowerCase();
-  console.log('The user answered: ' + answer3);
+  var answer3 = prompt(myQuestions[2]).toLowerCase();
+  console.log(userAnswered + answer3);
 
-  if (answer3 === 'no' || answer3 === 'n'){
+  if (answer === myResponses[2] || answer === myResponses[3]){
     userPoints++;
-    alert('That\'s correct! He attended Seattle Central Community College for an AA in Commercial Photography!\nYou now have ' + userPoints + ' point(s)');
+    alert(correctAnswers[2] + userPoints + pointsText);
   } else {
-    alert('Nope! But he did attended Seattle Central Community College for an AA in Commercial Photography!\nYou now have ' + userPoints + ' point(s)');
+    alert(wrongAnswers[2] + userPoints + pointsText);
   }
-  console.log('After question 3, the user has ' + userPoints + ' point(s)!');
+  console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
+  index ++;
 }
 question_three();
 
 //QUESTION 4
 function question_four() {
-  var answer4 = prompt('Did Devin grow up in Issaquah Washington?').toLowerCase();
-  console.log('The user answered: ' + answer4);
+  var answer4 = prompt(myQuestions[3]).toLowerCase();
+  console.log(userAnswered + answer4);
 
-  if (answer4 === 'yes' || answer4 === 'y'){
+  if (answer === myResponses[0] || answer === myResponses[1]){
     userPoints++;
-    alert('DING DING DING, that is right!\nYou now have ' + userPoints + ' point(s)');
+    alert(correctAnswers[3] + userPoints + pointsText);
   } else {
-    alert('Aw man, if you would have said yes, you would have gotten it right.\nYou now have ' + userPoints + ' point(s)');
+    alert(wrongAnswers[3] + userPoints + pointsText);
   }
-  console.log('After question 4, the user has ' + userPoints + ' point(s)');
+  console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
+  index ++;
 }
 question_four();
 
 //QUESTION 5
 function question_five() {
-  var answer5 = prompt('Does Devin currently work for a Pediatric office?').toLowerCase();
-  console.log('The user answered: ' + answer5);
+  var answer5 = prompt(myQuestions[4]).toLowerCase();
+  console.log(userAnswered + answer5);
 
-  if (answer5 === 'yes' || answer5 === 'y'){
+  if (answer === myResponses[0] || answer === myResponses[1]){
     userPoints++;
-    alert('That\'s correct! He works at Allegro Pediatrics in Bellevue.\nYou now have ' + userPoints + ' point(s');
+    alert(correctAnswers[4] + userPoints + ' point(s');
   } else {
-    alert('I was really rooting for you on that one :( He does work for a Pediatric office named Allegro Pediatrics.\nYou now have ' + userPoints + ' point(s');
+    alert(wrongAnswers[4] + userPoints + ' point(s');
   }
-  console.log('After question 5, the user has ' + userPoints + ' point(s)');
+  console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
+  index ++;
 }
 question_five();
 
@@ -109,11 +125,12 @@ function question_six() {
       console.log('The user guessed ' + answer6 + ' and has ' + attempts + ' attempts left');
     }else{
       userPoints++;
-      alert('Correct! He graduated from Skyline High School in 2009\nYou now have ' + userPoints + ' point(s)');
+      alert('Correct! He graduated from Skyline High School in 2009\nYou now have ' + userPoints + pointsText);
       break;
     }
   }
-  console.log('After question 6, the user has ' + userPoints + ' point(s)');
+  console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
+  index ++;
 }
 question_six();
 
@@ -143,6 +160,6 @@ function question_seven() {
   }
 }
 question_seven();
-console.log('After question 7 the user has ' + userPoints + ' point(s)');
+console.log('After question 7 the user has ' + userPoints + pointsText);
 
 alert('Here are my favorite car brands:\n' + myCars + '\n' + user + ', your final score is ' + userPoints + '/7 points');
