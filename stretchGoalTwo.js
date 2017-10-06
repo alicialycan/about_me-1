@@ -31,8 +31,8 @@ var pointsText = ' point(s)!';
 var youNowHave = ' You now have: ';
 var userAnswered = 'The user answered: ';
 var afterQuestion = 'After question ';
-var index = 1;
 var theUserHas = ', the user has ';
+var userNoResponse = 'You didn\'t give a yes or no answer. Please try again.';
 
 //QUESTION 1
 
@@ -40,23 +40,14 @@ function runAllQuestions(){
   for(var i = 0; i < 5; i++){
     var answer = prompt(myQuestions[i]).toLowerCase();
     console.log(userAnswered + answer);
-
-    if (i == 1 || i == 2){
-      if (answer === myResponses[2] || answer === myResponses[3]){
-        userPoints++;
-        alert(correctAnswers[i] + youNowHave + userPoints + pointsText);
-      } else {
-        alert(wrongAnswers[i] + youNowHave + userPoints + pointsText);
-      }
+    if (answer === myResponses[0] || answer === myResponses[1]){//checks if answer is yes
+      alert(correctAnswers[i] + youNowHave + userPoints + pointsText);
+      userPoints++;
     }
-    else{
-      if (answer === myResponses[0] || answer === myResponses[1]){
-        userPoints++;
-        alert(correctAnswers[i] + youNowHave + userPoints + pointsText);
-      } else {
-        alert(wrongAnswers[i] + youNowHave + userPoints + pointsText);
-      }
-      console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
+    else if (answer === myResponses[2] || answer === myResponses[3]){//checks if answer is no
+      alert(wrongAnswers[i] + youNowHave + userPoints + pointsText);
+    } else {
+      alert(userNoResponse + answer);
     }
   }
 }
@@ -81,8 +72,7 @@ function question_six() {
       break;
     }
   }
-  console.log(afterQuestion + index + theUserHas + userPoints + pointsText);
-  index ++;
+  console.log(afterQuestion + theUserHas + userPoints + pointsText);
 }
 question_six();
 
@@ -93,6 +83,7 @@ function question_seven() {
   var flag = false;
   var attemptsCars = 6;
   var answer7 = prompt('Can you guess another car brand that is my favorite besides Audi?').toLowerCase();
+  console.log('The user answered question: 7');
 
   while (!flag && attemptsCars > 0) {
     for (var i = 0; i < cars.length; i++) {
@@ -103,15 +94,14 @@ function question_seven() {
     if (flag === true) {
       userPoints++;
       alert('Correct! ' + answer7 + ' is on my list of favorite car brands!');
-      console.log('The user guessed ' + answer7 + ' and has ');
+      console.log('The user guessed ' + answer7 + ' and has ' + userPoints);
     } else {
       attemptsCars--;
       answer7 = prompt('Sorry, ' + answer7 + ' is not on my list of favorite car brands!\nYou have ' + attemptsCars + '  attempts left');
       console.log('The user guessed ' + answer7 + ' and has ' + (attemptsCars) + ' attempts left');
     }
   }
+  alert('Here are my favorite car brands:\n' + myCars + '\n' + user + ', your final score is ' + userPoints + '/7 points');
+  console.log('After question 7 the user has ' + userPoints + pointsText);
 }
 question_seven();
-console.log('After question 7 the user has ' + userPoints + pointsText);
-
-alert('Here are my favorite car brands:\n' + myCars + '\n' + user + ', your final score is ' + userPoints + '/7 points');
