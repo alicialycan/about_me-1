@@ -26,7 +26,8 @@ var myQuestions = [
 ];
 var correctAnswers = ['Yep yep yep!\nYou now have ', 'You\'re right! He is not a big fan of Ford\'s but he does love Audi!\nYou now have ', 'That\'s correct! He attended Seattle Central Community College for an AA in Commercial Photography!\nYou now have ', 'That\'s correct! He works at Allegro Pediatrics in Bellevue.\nYou now have '];
 var wrongAnswers = ['Wrong! Actually, I LOVE mexican food!!\nYou now have ', 'Uh oh... his favorite car brand is actually Audi.\nYou now have ', 'Nope! But he did attended Seattle Central Community College for an AA in Commercial Photography!\nYou now have ', 'Aw man, if you would have said yes, you would have gotten it right.\nYou now have ', 'I was really rooting for you on that one :( He does work for a Pediatric office named Allegro Pediatrics.\nYou now have '];
-var myResponses = ['yes', 'y', 'no', 'n'];
+var myResponses = ['yes', 'no', 'no', 'yes', 'yes'];
+var myResponses2 = ['y', 'n', 'n', 'y', 'y'];
 var pointsText = ' point(s)!';
 var youNowHave = ' You now have: ';
 var userAnswered = 'The user answered: ';
@@ -40,14 +41,13 @@ function runAllQuestions(){
   for(var i = 0; i < 5; i++){
     var answer = prompt(myQuestions[i]).toLowerCase();
     console.log(userAnswered + answer);
-    if (answer === myResponses[0] || answer === myResponses[1]){//checks if answer is yes
-      alert(correctAnswers[i] + youNowHave + userPoints + pointsText);
+    if (answer === myResponses[i] || answer === myResponses2[i]){//checks if answer is yes
       userPoints++;
-    }
-    else if (answer === myResponses[2] || answer === myResponses[3]){//checks if answer is no
-      alert(wrongAnswers[i] + youNowHave + userPoints + pointsText);
+      alert(correctAnswers[i] + youNowHave + userPoints + pointsText);
+      console.log('The answer is: ' + correctAnswers[i] + userAnswered + myResponses[i] + theUserHas + userPoints + pointsText);
     } else {
-      alert(userNoResponse + answer);
+      alert(wrongAnswers[i] + youNowHave + userPoints + pointsText);
+      console.log('The answer is not: ' + wrongAnswers[i] + userAnswered + myResponses[i] + theUserHas + userPoints + pointsText);
     }
   }
 }
